@@ -13,7 +13,7 @@ Dans ce repo, nous utiliserons **Docker Compose** pour exécuter un exemple CRUD
 
 ### Exécuter et tester le projet
 ---
-- Dans le répertoire du projet, pour générer le fichier JAR, exécutez : `mvn clean package -DskipTests`
+- Dans le répertoire du projet, pour générer le fichier JAR, exécutez : `mvn clean package -DskipTests=true`
 - Exécuter l'application avec Docker Compose : `docker-compose up`
 - Importer dans Postman la collection `new-mongodb-mcs.postman_collection.json` pour tester les APIs
 - Vous pouver utiliser aussi l'url du Swagger ou importer l'url Swagger dans Postman
