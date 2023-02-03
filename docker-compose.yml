@@ -1,0 +1,22 @@
+version: '3.8'
+services:
+  # service 1: definition of mongo database
+  mongo_db:
+    image: 'mongo:latest'
+    container_name: pocMongoDB
+    restart: always
+    ports:
+      - 27017:27017
+
+  # service 2: definition of your spring-boot app
+  poc_mcs:                                # it is just a name, which will be used only in this file.
+    image: 'spring-data-mongodb:latest'   # name of the image after dockerfile executes
+    container_name: mcs-mongodb           # name of the container created from docker image
+    build:
+      context: .                          # docker file path (. means root directory)
+      dockerfile: Dockerfile              # docker file name
+    ports:
+      - "8081:8081"                       # docker container port with your os port
+    restart: always
+    depends_on:                           # define dependencies of this app
+      - mongo_db                          # dependency name (which is defined with this name 'db' in this file earlier)
